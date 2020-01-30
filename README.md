@@ -12,7 +12,6 @@ Your app should let the user input a zipcode, then see the 7-day forecast.  Sele
 ![gif](https://github.com/joinpursuit/Pursuit-Core-iOS-WeatherApp/blob/master/weather-app.gif)
 
 # Github
-- create your own repo
 - commit often to your repo
 - submit your final repo link to canvas
 
