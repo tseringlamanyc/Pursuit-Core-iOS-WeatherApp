@@ -12,6 +12,8 @@ class MainVC: UIViewController {
     
     private var mainView = MainVIew()
     
+    private var detailVC = DetailVC()
+    
     override func loadView() {
         view = mainView
     }
@@ -24,7 +26,6 @@ class MainVC: UIViewController {
         mainView.weatherCV.dataSource = self
         mainView.weatherCV.delegate = self
     }
-
 }
 
 extension MainVC: UICollectionViewDataSource {
@@ -47,5 +48,10 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
         let maxSize = UIScreen.main.bounds.size
         let itemWidth: CGFloat = maxSize.width * 0.48
         return CGSize(width: itemWidth, height: 264)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailVC()
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

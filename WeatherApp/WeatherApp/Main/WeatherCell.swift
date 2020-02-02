@@ -20,6 +20,7 @@ class WeatherCell: UICollectionViewCell {
     public lazy var weatherIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "cloudy")
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
