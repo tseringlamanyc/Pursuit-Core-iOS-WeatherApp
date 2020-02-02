@@ -37,7 +37,7 @@ class DetailView: UIView {
         label.text = "high"
         return label
     }()
-
+    
     public lazy var lowLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -51,7 +51,7 @@ class DetailView: UIView {
         label.text = "Sunrise"
         return label
     }()
-
+    
     public lazy var sunset: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -86,6 +86,13 @@ class DetailView: UIView {
     private func commonInit() {
         setupLabel()
         setupImage()
+        setupCondition()
+        setupHigh()
+        setupLow()
+        setupSunrise()
+        setupSunset()
+        setupWind()
+        setupPre()
     }
     
     private func setupLabel() {
@@ -109,6 +116,74 @@ class DetailView: UIView {
         ])
     }
     
+    private func setupCondition() {
+        addSubview(conditionLabel)
+        conditionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            conditionLabel.topAnchor.constraint(equalTo: cityImage.bottomAnchor, constant: 10),
+            conditionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            conditionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
     
+    private func setupHigh() {
+        addSubview(highLabel)
+        highLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            highLabel.topAnchor.constraint(equalTo: conditionLabel.bottomAnchor, constant: 25),
+            highLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            highLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupLow() {
+        addSubview(lowLabel)
+        lowLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lowLabel.topAnchor.constraint(equalTo: highLabel.bottomAnchor, constant: 25),
+            lowLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            lowLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupSunrise() {
+        addSubview(sunrise)
+        sunrise.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sunrise.topAnchor.constraint(equalTo: lowLabel.bottomAnchor, constant: 25),
+            sunrise.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            sunrise.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupSunset() {
+        addSubview(sunset)
+        sunset.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sunset.topAnchor.constraint(equalTo: sunrise.bottomAnchor, constant: 25),
+            sunset.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            sunset.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupWind() {
+        addSubview(windSpeed)
+        windSpeed.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            windSpeed.topAnchor.constraint(equalTo: sunset.bottomAnchor, constant: 25),
+            windSpeed.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            windSpeed.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupPre() {
+        addSubview(precipitation)
+        precipitation.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            precipitation.topAnchor.constraint(equalTo: windSpeed.bottomAnchor, constant: 25),
+            precipitation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            precipitation.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
     
 }
