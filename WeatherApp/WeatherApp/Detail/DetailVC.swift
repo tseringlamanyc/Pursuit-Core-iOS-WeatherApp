@@ -1,5 +1,5 @@
 //
-//  FavVC.swift
+//  DetailVC.swift
 //  WeatherApp
 //
 //  Created by Tsering Lama on 2/1/20.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class FavVC: UIViewController {
+class DetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-        navigationController?.isToolbarHidden = true
     }
+
 }
