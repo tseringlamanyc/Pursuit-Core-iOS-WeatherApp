@@ -19,6 +19,7 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        tabBarController?.navigationItem.title = "Search"
         mainView.weatherCV.register(WeatherCell.self, forCellWithReuseIdentifier: "weatherCell")
         mainView.weatherCV.dataSource = self
         mainView.weatherCV.delegate = self
@@ -28,14 +29,13 @@ class MainVC: UIViewController {
 
 extension MainVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherCell", for: indexPath) as? WeatherCell else {
             fatalError()
         }
-        cell.backgroundColor = .systemBlue
         return cell
     }
     
@@ -46,6 +46,6 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize = UIScreen.main.bounds.size
         let itemWidth: CGFloat = maxSize.width * 0.48
-        return CGSize(width: itemWidth, height: 300)
+        return CGSize(width: itemWidth, height: 264)
     }
 }

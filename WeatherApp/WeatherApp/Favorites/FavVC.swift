@@ -13,6 +13,6 @@ class FavVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
-        navigationController?.isToolbarHidden = true
+         tabBarController?.navigationItem.title = "Favorites"
     }
 }

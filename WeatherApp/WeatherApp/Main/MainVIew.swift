@@ -22,7 +22,7 @@ class MainVIew: UIView {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 400, height: 400)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .systemRed
+        cv.backgroundColor = .systemBackground
         return cv
     }()
     
@@ -73,7 +73,7 @@ class MainVIew: UIView {
             weatherCV.topAnchor.constraint(equalTo: weatherLabel.bottomAnchor, constant: 20),
             weatherCV.leadingAnchor.constraint(equalTo: leadingAnchor),
             weatherCV.trailingAnchor.constraint(equalTo: trailingAnchor),
-            weatherCV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -350)
+            weatherCV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -400)
         ])
     }
     
