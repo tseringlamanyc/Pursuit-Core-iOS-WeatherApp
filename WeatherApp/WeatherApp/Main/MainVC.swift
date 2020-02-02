@@ -19,5 +19,6 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        mainView.weatherCV.register(WeatherCell.self, forCellWithReuseIdentifier: "weatherCell")
     }
 }

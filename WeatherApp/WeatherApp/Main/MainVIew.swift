@@ -11,19 +11,32 @@ import UIKit
 class MainVIew: UIView {
     
     public lazy var weatherLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textAlignment = .center
         label.text = "The weather forecast for New York"
         return label
     }()
     
     public lazy var weatherCV: UICollectionView = {
-       let layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 100, height: 100)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.backgroundColor = .systemRed
-       return cv
+        return cv
+    }()
+    
+    public lazy var textField: UITextField = {
+        let textfield = UITextField()
+        textfield.backgroundColor = .systemRed
+        return textfield
+    }()
+    
+    public lazy var enterLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Enter a zipcode above"
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -39,6 +52,8 @@ class MainVIew: UIView {
     private func commonInit() {
         setupLabel()
         setupCV()
+        setupTextField()
+        setUpZip()
     }
     
     private func setupLabel() {
@@ -59,6 +74,26 @@ class MainVIew: UIView {
             weatherCV.leadingAnchor.constraint(equalTo: leadingAnchor),
             weatherCV.trailingAnchor.constraint(equalTo: trailingAnchor),
             weatherCV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -350)
+        ])
+    }
+    
+    private func setupTextField() {
+        addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalTo: weatherCV.bottomAnchor, constant: 25),
+            textField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 150),
+            textField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -150)
+        ])
+    }
+    
+    private func setUpZip() {
+        addSubview(enterLabel)
+        enterLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            enterLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
+            enterLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 40),
+            enterLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40)
         ])
     }
 }
