@@ -10,16 +10,16 @@ import UIKit
 
 class WeatherCell: UICollectionViewCell {
     
+    var aWeather: DailyData!
+    
     public lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "feb"
         return label
     }()
     
     public lazy var weatherIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "cloudy")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -27,14 +27,12 @@ class WeatherCell: UICollectionViewCell {
     public lazy var highLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "high"
         return label
     }()
     
     public lazy var lowLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "low"
         return label
     }()
     
@@ -96,4 +94,33 @@ class WeatherCell: UICollectionViewCell {
         ])
     }
     
+    public func configureCell(weather: DailyData) {
+        dateLabel.text = "\(weather.time.convertDate())"
+        weatherIcon.image = UIImage(named: weather.icon)
+        highLabel.text = "High: \(weather.temperatureHigh)"
+        lowLabel.text = "Low: \(weather.temperatureLow)"
+    }
+    
 }
+
+extension Double {
+    func convertDate() -> String {
+        let date = Date(timeIntervalSince1970: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        dateFormatter.timeZone = .current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+    }
+    func convertTime() -> String {
+        let date = Date(timeIntervalSince1970: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.timeZone = .current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+    }
+}
+

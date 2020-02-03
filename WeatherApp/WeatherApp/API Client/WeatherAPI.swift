@@ -11,7 +11,7 @@ import NetworkHelper
 
 struct WeatherAPI {
     static func getLatLong(lat: Double, long: Double, completionHandler: @escaping (Result<Weather, AppError>) -> ()) {
-       
+               
         let endpointURL = "https://api.darksky.net/forecast/02847fbdf1108f89a3b4d7df562d9987/\(lat),\(long)"
         
         guard let url = URL(string: endpointURL) else {
@@ -33,6 +33,5 @@ struct WeatherAPI {
                 }
             }
         }
-        
     }
 }

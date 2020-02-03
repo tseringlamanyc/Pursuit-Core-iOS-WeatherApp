@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainVIew: UIView {
+class MainView: UIView {
     
     public lazy var weatherLabel: UILabel = {
         let label = UILabel()
@@ -28,7 +28,8 @@ class MainVIew: UIView {
     
     public lazy var textField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .systemRed
+        textfield.backgroundColor = .systemGray
+        textfield.keyboardType = .numbersAndPunctuation
         return textfield
     }()
     

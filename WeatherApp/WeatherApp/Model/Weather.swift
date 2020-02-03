@@ -21,11 +21,18 @@ struct Currently: Codable {
 }
 
 struct Daily: Codable {
-    let data: DailyData
+    let data: [DailyData]
 }
 
 struct DailyData: Codable {
-    let sunriseTime, sunsetTime: Int
-    let windSpeed: Double
+    let summary: String?
+    let time: Double
+    let icon: String
+    let sunriseTime: Double
+    let sunsetTime: Double
     let precipProbability: Double
+    let precipType: String?
+    let temperatureHigh: Double
+    let temperatureLow: Double
+    let windSpeed: Double
 }
