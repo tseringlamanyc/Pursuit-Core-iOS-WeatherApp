@@ -14,7 +14,6 @@ class DetailVC: UIViewController {
     
     override func loadView() {
         view = detailView
-        
     }
 
     override func viewDidLoad() {
@@ -22,5 +21,4 @@ class DetailVC: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
         view.backgroundColor = .systemBackground
     }
-
 }

@@ -12,7 +12,7 @@ class MainVC: UIViewController {
     
     private var mainView = MainVIew()
     
-    private var detailVC = DetailVC()
+    
     
     override func loadView() {
         view = mainView
@@ -39,8 +39,6 @@ extension MainVC: UICollectionViewDataSource {
         }
         return cell
     }
-    
-    
 }
 
 extension MainVC: UICollectionViewDelegateFlowLayout {
