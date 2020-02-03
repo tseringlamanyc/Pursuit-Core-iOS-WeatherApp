@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		524971D823E7286C001F3C32 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524971D723E7286C001F3C32 /* DetailView.swift */; };
+		524971DB23E7A412001F3C32 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524971DA23E7A412001F3C32 /* Weather.swift */; };
 		529FF98D23E66A0500D6D5EC /* MainVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF98C23E66A0500D6D5EC /* MainVIew.swift */; };
 		529FF99023E66B4000D6D5EC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF98F23E66B4000D6D5EC /* TabBarController.swift */; };
 		529FF99423E66BCF00D6D5EC /* FavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF99323E66BCF00D6D5EC /* FavVC.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		524971D723E7286C001F3C32 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		524971DA23E7A412001F3C32 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		529FF98C23E66A0500D6D5EC /* MainVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVIew.swift; sourceTree = "<group>"; };
 		529FF98F23E66B4000D6D5EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		529FF99323E66BCF00D6D5EC /* FavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavVC.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524971D923E7A3FF001F3C32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				524971DA23E7A412001F3C32 /* Weather.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		529FF98A23E6695700D6D5EC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				524971D923E7A3FF001F3C32 /* Model */,
 				529FF98B23E669EC00D6D5EC /* Main */,
 				529FF99123E66B8800D6D5EC /* Detail */,
 				529FF99223E66B9600D6D5EC /* Favorites */,
@@ -198,6 +209,7 @@
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				529FF99423E66BCF00D6D5EC /* FavVC.swift in Sources */,
 				529FF99A23E677C200D6D5EC /* WeatherCell.swift in Sources */,
+				524971DB23E7A412001F3C32 /* Weather.swift in Sources */,
 				524971D823E7286C001F3C32 /* DetailView.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
 				529FF99023E66B4000D6D5EC /* TabBarController.swift in Sources */,
