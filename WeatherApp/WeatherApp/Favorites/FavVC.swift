@@ -43,6 +43,7 @@ class FavVC: UIViewController {
     func loadFav() {
         do {
             favorites = try dataPersistence.loadPhotos()
+            favorites = favorites.reversed()
         } catch {
             print("no favoties")
         }
