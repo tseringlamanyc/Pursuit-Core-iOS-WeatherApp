@@ -10,7 +10,7 @@ import UIKit
 
 class DetailVC: UIViewController {
     
-    private var detailView = DetailView()
+    public var detailView = DetailView()
     
     override func loadView() {
         view = detailView

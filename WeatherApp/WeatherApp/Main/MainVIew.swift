@@ -13,7 +13,7 @@ class MainView: UIView {
     public lazy var weatherLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "The weather forecast for New York"
+        label.text = "welcome"
         return label
     }()
     
@@ -28,7 +28,7 @@ class MainView: UIView {
     
     public lazy var textField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .systemGray
+        textfield.backgroundColor = .systemGray3
         textfield.keyboardType = .numbersAndPunctuation
         return textfield
     }()

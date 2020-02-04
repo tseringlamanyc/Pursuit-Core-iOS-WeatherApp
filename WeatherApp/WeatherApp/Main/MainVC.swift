@@ -15,6 +15,7 @@ class MainVC: UIViewController {
     override func loadView() {
         view = mainView
     }
+    var picture = [Things]()
     
     var allWeather = [DailyData]() {
         didSet {
@@ -24,7 +25,7 @@ class MainVC: UIViewController {
         }
     }
     
-    var theZipcode = "" {
+    var theZipcode = "11377" {
         didSet {
             getZip(string: theZipcode)
         }
@@ -38,26 +39,46 @@ class MainVC: UIViewController {
         mainView.weatherCV.dataSource = self
         mainView.weatherCV.delegate = self
         mainView.textField.delegate = self
+        getZip(string: theZipcode)
     }
     
     private func getWeather(lat: Double, long: Double, placename: String) {
-        WeatherAPI.getLatLong(lat: lat, long: long) { (result) in
+        WeatherAPI.getLatLong(lat: lat, long: long) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print("\(appError)")
             case .success(let weatherData):
-                self.allWeather = weatherData.daily.data
+                self?.allWeather = weatherData.daily.data
+            }
+        }
+    }
+    
+    private func getPhotos(city: String) {
+        PhotoAPI.getPhotos(search: city) { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                print("\(appError)")
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.picture = image
+                }
             }
         }
     }
     
     private func getZip(string: String) {
-        ZipCodeHelper.getLatLong(fromZipCode: string) { (result) in
+        ZipCodeHelper.getLatLong(fromZipCode: string) { [weak self] (result) in
             switch result {
             case .failure(let error):
                 print("\(error)")
             case .success(let coordinates):
-                self.getWeather(lat: coordinates.lat, long: coordinates.long, placename: coordinates.placeName)
+                self?.getWeather(lat: coordinates.lat, long: coordinates.long, placename: coordinates.placeName)
+                self?.getPhotos(city: coordinates.placeName)
+                self?.mainView.weatherLabel.text = "Weather for \(coordinates.placeName)"
+                DispatchQueue.main.async {
+                   self?.getPhotos(city: coordinates.placeName)
+                    print(coordinates.placeName)
+                }
             }
         }
     }
@@ -86,7 +107,21 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let aDay = allWeather[indexPath.row]
         let detailVC = DetailVC()
+        detailVC.detailView.updateUI(weather: aDay)
+        var photoString = detailVC.detailView.photo1
+        photoString = picture[indexPath.row].largeImageURL
+        detailVC.detailView.cityImage.getImage(with: photoString) { (result) in
+            switch result {
+            case .failure(let appError):
+                print("\(appError)")
+            case .success(let image):
+                DispatchQueue.main.async {
+                    detailVC.detailView.cityImage.image = image
+                }
+            }
+        }
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

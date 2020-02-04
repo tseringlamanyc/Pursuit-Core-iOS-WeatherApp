@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import ImageKit
 
 class DetailView: UIView {
+    
+    var photo1 = ""
     
     public lazy var topLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "The weather forecast for New York for feb"
         return label
     }()
     
     public lazy var cityImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "cloudy")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -27,49 +28,42 @@ class DetailView: UIView {
     public lazy var conditionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Partly cloudy"
         return label
     }()
     
     public lazy var highLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "high"
         return label
     }()
     
     public lazy var lowLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Low"
         return label
     }()
     
     public lazy var sunrise: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Sunrise"
         return label
     }()
     
     public lazy var sunset: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Sunset"
         return label
     }()
     
     public lazy var windSpeed: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Windspeed"
         return label
     }()
     
     public lazy var precipitation: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Precipitation"
         return label
     }()
     
@@ -99,7 +93,7 @@ class DetailView: UIView {
         addSubview(topLabel)
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             topLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             topLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
@@ -109,9 +103,9 @@ class DetailView: UIView {
         addSubview(cityImage)
         cityImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cityImage.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 20),
-            cityImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            cityImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 20),
+            cityImage.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10),
+            cityImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            cityImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
             cityImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.40)
         ])
     }
@@ -120,7 +114,7 @@ class DetailView: UIView {
         addSubview(conditionLabel)
         conditionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            conditionLabel.topAnchor.constraint(equalTo: cityImage.bottomAnchor, constant: 10),
+            conditionLabel.topAnchor.constraint(equalTo: cityImage.bottomAnchor, constant: 5),
             conditionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             conditionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
@@ -186,4 +180,16 @@ class DetailView: UIView {
         ])
     }
     
+    func updateUI(weather: DailyData) {
+        topLabel.text = "\(weather.time.convertDate())"
+        conditionLabel.text = weather.summary ?? "n/a"
+        highLabel.text = "High: \(weather.temperatureHigh.description)"
+        lowLabel.text = "Low: \(weather.temperatureLow.description)"
+        windSpeed.text = "Windspeed: \(weather.windSpeed.description)"
+        sunrise.text = "Sunrise: \(weather.sunriseTime.convertTime())"
+        sunset.text = "Sunset: \(weather.sunsetTime.convertTime())"
+        precipitation.text = "Precipitation: \(weather.precipProbability.description)"
+    }
+    
 }
+
