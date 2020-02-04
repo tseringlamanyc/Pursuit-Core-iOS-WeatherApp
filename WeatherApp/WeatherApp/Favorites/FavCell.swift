@@ -38,7 +38,7 @@ class FavCell: UICollectionViewCell {
             favPic.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             favPic.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             favPic.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            favPic.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.40)
+            favPic.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
     }
     

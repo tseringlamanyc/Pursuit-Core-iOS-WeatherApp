@@ -12,10 +12,10 @@ class FavView: UIView {
     
     public lazy var favCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: 400, height: 400)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .systemRed
+        cv.backgroundColor = .systemBackground
         return cv
     }()
     

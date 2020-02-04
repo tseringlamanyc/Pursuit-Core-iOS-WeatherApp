@@ -18,7 +18,7 @@ class DetailVC: UIViewController {
     
     override func loadView() {
         view = detailView
-        photo = detailView.photo1
+        // photo = detailView.photo1
     }
 
     override func viewDidLoad() {
@@ -29,7 +29,6 @@ class DetailVC: UIViewController {
     
     @objc
     private func saveToFave(sender: UIBarButtonItem) {
-        
         guard let photo = photo else {
             fatalError("no photo")
         }
@@ -41,5 +40,4 @@ class DetailVC: UIViewController {
             showAlert(title: "Failed", message: "Couldnt save photo")
         }
     }
-   
 }

@@ -116,25 +116,10 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
         // detailVC.photo = picture[indexPath.row]
         
         detailVC.detailView.photo1 =  picture[indexPath.row]
-        
+        detailVC.photo =  picture[indexPath.row]
+        detailVC.dataPersistence = dataPersistence
         detailVC.detailView.updateUI(weather: aDay)
         
-        
-
-        
-//        var photoString = detailVC.detailView.photo1
-//        photoString = picture[indexPath.row]
-        
-//        detailVC.detailView.cityImage.getImage(with: photoString?.largeImageURL ?? "n/a") { (result) in
-//            switch result {
-//            case .failure(let appError):
-//                print("\(appError)")
-//            case .success(let image):
-//                DispatchQueue.main.async {
-//                    detailVC.detailView.cityImage.image = image
-//                }
-//            }
-//        }
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

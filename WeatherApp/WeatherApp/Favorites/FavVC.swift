@@ -67,11 +67,8 @@ extension FavVC: UICollectionViewDataSource {
 
 extension FavVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let interspacing = CGFloat(1)
-        let maxwidth = UIScreen.main.bounds.size.width
-        let numOfItems = CGFloat(2)
-        let totalSpacing = CGFloat(numOfItems * interspacing)
-        let itemWidth = CGFloat((maxwidth - totalSpacing) / (numOfItems) )
-        return CGSize(width: maxwidth, height: itemWidth)
+        let maxSize = UIScreen.main.bounds.size
+        let itemWidth: CGFloat = maxSize.width 
+        return CGSize(width: itemWidth, height: 264)
     }
 }
