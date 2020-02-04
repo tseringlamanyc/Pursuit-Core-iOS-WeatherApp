@@ -43,7 +43,7 @@ class PersistenceHelper {
         try? save()
     }
     
-    public func create(photo: Things) throws {
+    public func save(photo: Things) throws {
         photos.append(photo)
         
         do {

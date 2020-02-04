@@ -11,7 +11,7 @@ import ImageKit
 
 class DetailView: UIView {
     
-    var photo1: Things!
+    var photo1: Things?
     
     public lazy var topLabel: UILabel = {
         let label = UILabel()
@@ -189,7 +189,20 @@ class DetailView: UIView {
         sunrise.text = "Sunrise: \(weather.sunriseTime.convertTime())"
         sunset.text = "Sunset: \(weather.sunsetTime.convertTime())"
         precipitation.text = "Precipitation: \(weather.precipProbability.description)"
+        
+        guard let photo1 = photo1 else {
+            fatalError("no image")
+        }
+        
+        cityImage.getImage(with: photo1.largeImageURL) { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                print("\(appError)")
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.cityImage.image = image
+                }
+            }
+        }
     }
-    
 }
-

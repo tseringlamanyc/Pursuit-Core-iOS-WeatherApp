@@ -15,7 +15,10 @@ class MainVC: UIViewController {
     override func loadView() {
         view = mainView
     }
+    
     var picture = [Things]()
+    
+    var dataPersistence: PersistenceHelper!
     
     var allWeather = [DailyData]() {
         didSet {
@@ -58,9 +61,9 @@ class MainVC: UIViewController {
             switch result {
             case .failure(let appError):
                 print("\(appError)")
-            case .success(let image):
+            case .success(let images):
                 DispatchQueue.main.async {
-                    self?.picture = image
+                    self?.picture = images
                 }
             }
         }
@@ -77,7 +80,6 @@ class MainVC: UIViewController {
                 self?.mainView.weatherLabel.text = "Weather for \(coordinates.placeName)"
                 DispatchQueue.main.async {
                    self?.getPhotos(city: coordinates.placeName)
-                    print(coordinates.placeName)
                 }
             }
         }
@@ -108,20 +110,31 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let aDay = allWeather[indexPath.row]
+        
         let detailVC = DetailVC()
+        
+        // detailVC.photo = picture[indexPath.row]
+        
+        detailVC.detailView.photo1 =  picture[indexPath.row]
+        
         detailVC.detailView.updateUI(weather: aDay)
-        var photoString = detailVC.detailView.photo1
-        photoString = picture[indexPath.row]
-        detailVC.detailView.cityImage.getImage(with: photoString?.largeImageURL ?? "n/a") { (result) in
-            switch result {
-            case .failure(let appError):
-                print("\(appError)")
-            case .success(let image):
-                DispatchQueue.main.async {
-                    detailVC.detailView.cityImage.image = image
-                }
-            }
-        }
+        
+        
+
+        
+//        var photoString = detailVC.detailView.photo1
+//        photoString = picture[indexPath.row]
+        
+//        detailVC.detailView.cityImage.getImage(with: photoString?.largeImageURL ?? "n/a") { (result) in
+//            switch result {
+//            case .failure(let appError):
+//                print("\(appError)")
+//            case .success(let image):
+//                DispatchQueue.main.async {
+//                    detailVC.detailView.cityImage.image = image
+//                }
+//            }
+//        }
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

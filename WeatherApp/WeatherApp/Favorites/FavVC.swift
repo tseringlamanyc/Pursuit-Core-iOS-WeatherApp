@@ -24,7 +24,7 @@ class FavVC: UIViewController {
         }
     }
     
-    public var persistenceHelper: PersistenceHelper!
+    public var dataPersistence: PersistenceHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class FavVC: UIViewController {
     
     func loadFav() {
         do {
-            favorites = try persistenceHelper.loadPhotos()
+            favorites = try dataPersistence.loadPhotos()
         } catch {
             print("no favoties")
         }

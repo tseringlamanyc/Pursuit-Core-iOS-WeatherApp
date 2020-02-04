@@ -10,6 +10,8 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    let dataPersistence = PersistenceHelper(filename: "fav.plist")
+    
     private lazy var mainVC: MainVC = {
         let vc = MainVC()
         vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
@@ -23,11 +25,14 @@ class TabBarController: UITabBarController {
         vc.navigationItem.title = "Favorites"
         return vc
     }()
-
+    
+    let detailVC = DetailVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainVC.dataPersistence = dataPersistence
+        detailVC.dataPersistence = dataPersistence
+        favVC.dataPersistence = dataPersistence
         viewControllers = [mainVC,favVC]
     }
-    
-
 }
