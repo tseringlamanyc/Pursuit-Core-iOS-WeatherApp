@@ -13,6 +13,7 @@
 		524971E023E7AA25001F3C32 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524971DF23E7AA25001F3C32 /* WeatherAPI.swift */; };
 		524971E223E7AA32001F3C32 /* PhotosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524971E123E7AA32001F3C32 /* PhotosAPI.swift */; };
 		524971E523E7AC9A001F3C32 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 524971E423E7AC9A001F3C32 /* ImageKit */; };
+		52851E0223E91BB900174AB2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851E0123E91BB900174AB2 /* Alert.swift */; };
 		529FF98D23E66A0500D6D5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF98C23E66A0500D6D5EC /* MainView.swift */; };
 		529FF99023E66B4000D6D5EC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF98F23E66B4000D6D5EC /* TabBarController.swift */; };
 		529FF99423E66BCF00D6D5EC /* FavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF99323E66BCF00D6D5EC /* FavVC.swift */; };
@@ -32,6 +33,7 @@
 		524971DC23E7A814001F3C32 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		524971DF23E7AA25001F3C32 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		524971E123E7AA32001F3C32 /* PhotosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPI.swift; sourceTree = "<group>"; };
+		52851E0123E91BB900174AB2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		529FF98C23E66A0500D6D5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		529FF98F23E66B4000D6D5EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		529FF99323E66BCF00D6D5EC /* FavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavVC.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
+				52851E0123E91BB900174AB2 /* Alert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				524971DD23E7A814001F3C32 /* Photos.swift in Sources */,
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				529FF99423E66BCF00D6D5EC /* FavVC.swift in Sources */,
+				52851E0223E91BB900174AB2 /* Alert.swift in Sources */,
 				529FF99A23E677C200D6D5EC /* WeatherCell.swift in Sources */,
 				524971DB23E7A412001F3C32 /* Weather.swift in Sources */,
 				524971D823E7286C001F3C32 /* DetailView.swift in Sources */,

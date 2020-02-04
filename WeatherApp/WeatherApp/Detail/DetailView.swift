@@ -11,7 +11,7 @@ import ImageKit
 
 class DetailView: UIView {
     
-    var photo1 = ""
+    var photo1: Things!
     
     public lazy var topLabel: UILabel = {
         let label = UILabel()

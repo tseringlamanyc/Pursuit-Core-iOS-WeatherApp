@@ -86,7 +86,7 @@ class MainVC: UIViewController {
 
 extension MainVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allWeather.count
+        return allWeather.count - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -111,8 +111,8 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
         let detailVC = DetailVC()
         detailVC.detailView.updateUI(weather: aDay)
         var photoString = detailVC.detailView.photo1
-        photoString = picture[indexPath.row].largeImageURL
-        detailVC.detailView.cityImage.getImage(with: photoString) { (result) in
+        photoString = picture[indexPath.row]
+        detailVC.detailView.cityImage.getImage(with: photoString?.largeImageURL ?? "n/a") { (result) in
             switch result {
             case .failure(let appError):
                 print("\(appError)")
