@@ -14,6 +14,10 @@
 		524971E223E7AA32001F3C32 /* PhotosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524971E123E7AA32001F3C32 /* PhotosAPI.swift */; };
 		524971E523E7AC9A001F3C32 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 524971E423E7AC9A001F3C32 /* ImageKit */; };
 		52851E0223E91BB900174AB2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851E0123E91BB900174AB2 /* Alert.swift */; };
+		52851E0523E91C4900174AB2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851E0423E91C4900174AB2 /* FileManager.swift */; };
+		52851E0723E91C7C00174AB2 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851E0623E91C7C00174AB2 /* PersistenceHelper.swift */; };
+		52851E0923E91F5200174AB2 /* FavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851E0823E91F5200174AB2 /* FavView.swift */; };
+		52851E0B23E9202E00174AB2 /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851E0A23E9202E00174AB2 /* FavCell.swift */; };
 		529FF98D23E66A0500D6D5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF98C23E66A0500D6D5EC /* MainView.swift */; };
 		529FF99023E66B4000D6D5EC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF98F23E66B4000D6D5EC /* TabBarController.swift */; };
 		529FF99423E66BCF00D6D5EC /* FavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529FF99323E66BCF00D6D5EC /* FavVC.swift */; };
@@ -34,6 +38,10 @@
 		524971DF23E7AA25001F3C32 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		524971E123E7AA32001F3C32 /* PhotosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPI.swift; sourceTree = "<group>"; };
 		52851E0123E91BB900174AB2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		52851E0423E91C4900174AB2 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		52851E0623E91C7C00174AB2 /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
+		52851E0823E91F5200174AB2 /* FavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavView.swift; sourceTree = "<group>"; };
+		52851E0A23E9202E00174AB2 /* FavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
 		529FF98C23E66A0500D6D5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		529FF98F23E66B4000D6D5EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		529FF99323E66BCF00D6D5EC /* FavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavVC.swift; sourceTree = "<group>"; };
@@ -79,6 +87,15 @@
 			path = "API Client";
 			sourceTree = "<group>";
 		};
+		52851E0323E91C3700174AB2 /* Data Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				52851E0423E91C4900174AB2 /* FileManager.swift */,
+				52851E0623E91C7C00174AB2 /* PersistenceHelper.swift */,
+			);
+			path = "Data Persistence";
+			sourceTree = "<group>";
+		};
 		529FF98A23E6695700D6D5EC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				529FF99323E66BCF00D6D5EC /* FavVC.swift */,
+				52851E0823E91F5200174AB2 /* FavView.swift */,
+				52851E0A23E9202E00174AB2 /* FavCell.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -142,6 +161,7 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				52851E0323E91C3700174AB2 /* Data Persistence */,
 				524971DE23E7AA09001F3C32 /* API Client */,
 				524971D923E7A3FF001F3C32 /* Model */,
 				529FF98B23E669EC00D6D5EC /* Main */,
@@ -240,11 +260,15 @@
 				52851E0223E91BB900174AB2 /* Alert.swift in Sources */,
 				529FF99A23E677C200D6D5EC /* WeatherCell.swift in Sources */,
 				524971DB23E7A412001F3C32 /* Weather.swift in Sources */,
+				52851E0923E91F5200174AB2 /* FavView.swift in Sources */,
 				524971D823E7286C001F3C32 /* DetailView.swift in Sources */,
+				52851E0723E91C7C00174AB2 /* PersistenceHelper.swift in Sources */,
+				52851E0523E91C4900174AB2 /* FileManager.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
 				524971E223E7AA32001F3C32 /* PhotosAPI.swift in Sources */,
 				529FF99023E66B4000D6D5EC /* TabBarController.swift in Sources */,
 				529FF98D23E66A0500D6D5EC /* MainView.swift in Sources */,
+				52851E0B23E9202E00174AB2 /* FavCell.swift in Sources */,
 				529FF99823E66E0400D6D5EC /* DetailVC.swift in Sources */,
 				524971E023E7AA25001F3C32 /* WeatherAPI.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
