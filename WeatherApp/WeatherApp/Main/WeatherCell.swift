@@ -12,6 +12,22 @@ class WeatherCell: UICollectionViewCell {
     
     var aWeather: DailyData!
     
+    public lazy var gradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        return gradient
+    }()
+    
+    public lazy var animate: CABasicAnimation = {
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = [-0.5, -0.25, 0]
+        animation.toValue = [1.0, 1.25, 1.5]
+        animation.duration = 5.0
+        animation.autoreverses = true
+        animation.repeatCount = Float.infinity
+        self.gradient.add(animation, forKey: nil)
+        return animation
+    }()
+    
     public lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -47,12 +63,23 @@ class WeatherCell: UICollectionViewCell {
     }
     
     private func commonInit() {
+        setupGradient()
+        self.layer.add(animate, forKey: nil)
+        self.layer.addSublayer(gradient)
         setUpDate()
         setupImage()
         setupHigh()
         setupLow()
     }
     
+    func setupGradient() {
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor(red: (255/255.0), green: (185/255.0), blue: (0/255.0), alpha: 1).cgColor]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.locations = [0,0]
+    }
+
     private func setUpDate() {
         addSubview(dateLabel)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false

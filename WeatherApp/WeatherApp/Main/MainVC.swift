@@ -44,7 +44,7 @@ class MainVC: UIViewController {
         mainView.textField.delegate = self
         getZip(string: theZipcode)
     }
-    
+  
     private func getWeather(lat: Double, long: Double, placename: String) {
         WeatherAPI.getLatLong(lat: lat, long: long) { [weak self] (result) in
             switch result {

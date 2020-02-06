@@ -10,10 +10,26 @@ import UIKit
 
 class MainView: UIView {
     
+    public lazy var gradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        return gradient
+    }()
+    
+    public lazy var animate: CABasicAnimation = {
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = [-0.5, -0.25, 0]
+        animation.toValue = [1.0, 1.25, 1.5]
+        animation.duration = 5.0
+        animation.autoreverses = true
+        animation.repeatCount = Float.infinity
+        self.gradient.add(animation, forKey: nil)
+        return animation
+    }()
+    
     public lazy var weatherLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "welcome"
+        label.text = "Welcome"
         return label
     }()
     
@@ -51,19 +67,32 @@ class MainView: UIView {
     }
     
     private func commonInit() {
+        setupGradient()
+        self.layer.add(animate, forKey: nil)
+        self.layer.addSublayer(gradient)
+        animateThem()
         setupLabel()
         setupCV()
         setupTextField()
         setUpZip()
     }
     
+    func setupGradient() {
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor(red: (255/255.0), green: (185/255.0), blue: (0/255.0), alpha: 1).cgColor]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.locations = [0,0]
+    }
+
+    
     private func setupLabel() {
         addSubview(weatherLabel)
         weatherLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             weatherLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            weatherLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 40),
-            weatherLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40)
+            weatherLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            weatherLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -100)
         ])
     }
     
@@ -92,9 +121,20 @@ class MainView: UIView {
         addSubview(enterLabel)
         enterLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            enterLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
+            enterLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 50),
             enterLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 40),
             enterLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40)
         ])
     }
+    
+    private func animateThem() {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseInOut], animations: {
+            self.weatherLabel.transform = CGAffineTransform(translationX: 50, y: 0)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseIn], animations: {
+            self.enterLabel.transform = CGAffineTransform(translationX: 0, y: -35)
+        }, completion: nil)
+    }
+    
 }
